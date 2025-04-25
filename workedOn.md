@@ -1,0 +1,12 @@
+- Create a repository
+- Initialize the repository
+- node_module, package.json, package-lock.json
+- Install express
+- Create a server
+- Listin to port 3030
+- Write request handlers foe /test, /hello
+- inatall nodemone and update scripts inside package.json 
+- What are dependencies
+- What is the use of "-g" while npm install - g stands for -> global or on the whole syatem in simpler terms -> installing any package or liberary on the system
+- Difference between caret and tilda ( ^ vs ~ )
+
