@@ -39,3 +39,5 @@ Helps avoid “works on my machine” bugs
 
 🛠️ Think of it as the actual receipt showing exactly what was bought, including all sub-dependencies.
 
+# Orders of the rouets matters a lot in backend 
+- Install Postman app and make a workshop/collection > test api call 
