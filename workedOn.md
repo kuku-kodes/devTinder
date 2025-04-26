@@ -40,4 +40,10 @@ Helps avoid “works on my machine” bugs
 🛠️ Think of it as the actual receipt showing exactly what was bought, including all sub-dependencies.
 
 # Orders of the rouets matters a lot in backend 
+
 - Install Postman app and make a workshop/collection > test api call 
+- write logic to handle GET, POST, DELETE API calls and test them on Postman
+- Explore routing and use of ?, +, (), * in the route / while making use of (req.query)
+- use the regex in routes /a/ , /.*fly$/ 
+- Reading the query, params in the routes
+- Reading the dynamic routes.
