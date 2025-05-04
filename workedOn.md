@@ -47,3 +47,9 @@ Helps avoid “works on my machine” bugs
 - use the regex in routes /a/ , /.*fly$/ 
 - Reading the query, params in the routes
 - Reading the dynamic routes.
+
+- This code runs on V8 engine which executes codes line by line because java is syncronous single threaded languange.
+- Multiple routes can be handled.
+- Making use of next() function will let us help to execute the next route handler.
+- we can also put the multiple req(),res() router handler in array and mix and match it according to our choice.
+- The functions which are written in the middle of the route handlers are basically called the "middlewares" which a lingo basically used by the developers.
