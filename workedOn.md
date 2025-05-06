@@ -53,3 +53,12 @@ Helps avoid “works on my machine” bugs
 - Making use of next() function will let us help to execute the next route handler.
 - we can also put the multiple req(),res() router handler in array and mix and match it according to our choice.
 - The functions which are written in the middle of the route handlers are basically called the "middlewares" which a lingo basically used by the developers.
+
+- Create a free cluster on MongoDB official webSite (MongoDB Atlas)
+- Install "mongoose" liberary
+- connet your application to the database "Connnection url"/devTinder
+- Call the connectDB function and connect to dataBase before starting application on port 3030
+- Create a userSchema & user Model 
+- Create POST signup API to add data to database 
+- push some document using API calls from postman
+- Error handling using try and catch
