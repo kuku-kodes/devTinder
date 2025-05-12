@@ -62,3 +62,30 @@ Helps avoid “works on my machine” bugs
 - Create POST signup API to add data to database 
 - push some document using API calls from postman
 - Error handling using try and catch
+
+# JS object vs JSON (difference)
+- JSON is a data format (a string), while a JavaScript object is an actual object in memory used in code execution.
+- Key Differences:
+
+Feature	   JavaScript Object	                                            JSON Object
+
+Type	   Native object (in-memory structure)	                            String (data format)
+Usage	   Used directly in JavaScript code to store and manipulate data	Used to transmit data (e.g., between client and server)
+Quotes	   Keys can be unquoted	                                            Keys must be in double quotes
+Functions  Can contain functions and methods	                            Cannot contain functions or undefined values
+Example	   { name: "Alice", age: 25 }	                                    { "name": "Alice", "age": 25 }
+
+- Add the expreess JSON middleware to yore app
+- make your signup API dyanimac to receive data from the end user
+- User.findOne() with duplicate emailId , which object returned 
+- API - get user by email
+- API - Feed API - GET /feed - get all the user from the database 
+- API - get user by id
+- Create a delete user API
+- DIfference between PATCH & PUT 
+- API - update a user 
+- Explore the mongoose Documentation for Model methords
+- what are the options in a Model.findOneAndUpdate method, explore more about it 
+- API - Update the user with email ID
+
+
