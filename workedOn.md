@@ -88,4 +88,13 @@ Example	   { name: "Alice", age: 25 }	                                    { "nam
 - what are the options in a Model.findOneAndUpdate method, explore more about it 
 - API - Update the user with email ID
 
+- Explore schematype options from the documentation 
+- Add required , unique, lowercase , min , minLength, trim
+- Add default 
+- Create a custom made validation for gender
+- Improve the DB schema - PUT all the appropriate validations on each field in the schema 
+- Add timestamps to the userSchema 
+- Add API level validation on patch request & signUp POST API 
+# Data Sanitization
+- Add API valaditation for each field
 
