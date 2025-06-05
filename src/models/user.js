@@ -1,5 +1,6 @@
 
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -24,12 +25,22 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         unique: true,
         trim: true,
+        validate(value){
+            if(!validator.isEmail(value)){
+                throw new Error("Invalid email address:" + value);
+            }
+            
+        }
     },
     password: {
         type: String,
         require: true,
         minLength: 4,
-        maxLength: 20,
+        validate(value){
+            if(!validator.isStrongPassword(value)){
+                throw new Error("Enter a strong password:" + value);
+            }
+        }
     },
     age: {
         type: Number,
@@ -46,6 +57,11 @@ const userSchema = new mongoose.Schema({
     photoUrl:{
         type:String,
         default: "https://rmvg.com/wp-content/uploads/2017/09/blank.jpg",
+        validate(value){
+            if(!validator.isURL(value)){
+                throw new Error("Enter a valid URL:" + value);
+            }
+        }
     },
     about: {
         type:String,
