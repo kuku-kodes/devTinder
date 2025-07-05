@@ -97,4 +97,22 @@ Example	   { name: "Alice", age: 25 }	                                    { "nam
 - Add API level validation on patch request & signUp POST API 
 # Data Sanitization
 - Add API valaditation for each field
+- Install validator 
+- Explore validatore liberary function and use validator function for password, email, photoURL, 
+- NEVER TRUST req.body
+
+- Validate data in signUp API
+- Install bcrypt package 
+- Create passwordHash using bcrypt.hash & save the user in excrupted password
+- Create login API 
+- Compare password and throw error if email or passwor is invalid 
+
+- Install coolie-parser
+- just send a dummy cookie to the user 
+- create GET /profile API and check if u get the coolie back
+- Install jsonwebtoken
+- In /login API , after email and password validatiion , create a JWT toke and send it to the user in coolies 
+- read the cookies in side your proflie API and find the logged in user 
+- userAuth Middleware
+-
 
