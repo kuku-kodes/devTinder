@@ -116,3 +116,6 @@ Example	   { name: "Alice", age: 25 }	                                    { "nam
 - userAuth Middleware
 -
 
+# Pre-hook or pre-middleware
+In Express.js, "pre" typically refers to pre-middleware or pre-hooks, which are functions or sets of functions executed before a specific operation or route handler. This concept is most commonly associated with:
+Mongoose Pre-Hooks: When working with Mongoose (an ODM for MongoDB and Node.js), schema.pre() allows you to define middleware that runs before certain Mongoose operations, such as 'save', 'validate', 'remove', or 'find'. This is useful for tasks like data validation, hashing passwords before saving, or logging.

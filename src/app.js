@@ -17,10 +17,12 @@ app.use(cookieParser());
 const authRouter = require('../src/routes/auth');
 const profileRouter = require('../src/routes/profile');
 const requestRouter = require('../src/routes/request');
+const userRouter = require("../src/routes/userConnection");
 
 app.use("/", authRouter);
 app.use("/", profileRouter);
 app.use("/", requestRouter);
+app.use("/", userRouter);
 
 // app.get("/feed" , async(req, res) => {
 //     const users = req.body.emailId;
