@@ -119,3 +119,21 @@ Example	   { name: "Alice", age: 25 }	                                    { "nam
 # Pre-hook or pre-middleware
 In Express.js, "pre" typically refers to pre-middleware or pre-hooks, which are functions or sets of functions executed before a specific operation or route handler. This concept is most commonly associated with:
 Mongoose Pre-Hooks: When working with Mongoose (an ODM for MongoDB and Node.js), schema.pre() allows you to define middleware that runs before certain Mongoose operations, such as 'save', 'validate', 'remove', or 'find'. This is useful for tasks like data validation, hashing passwords before saving, or logging.
+
+
+# user/feed API
+- logic for GET/ feed api it is the most important api
+- Explore the $nin and $ne and other query operators
+- Pagination - Pagination in React involves dividing a large dataset into smaller, manageable "pages" to improve user experience and performance. This is typically achieved by controlling which subset of data is displayed at any given time, along with navigation controls to move between these subsets.
+
+# Note :-
+
+/feed?page=1&limit=10 => (1-10) => .skip(0) & .limit(10)
+
+/feed?page=2&limit=10 => (11-20) => .skip(10) & .limit(10)
+
+/feed?page=3&limit=10 => (21-30) => .skip(20) & .limit(10)
+
+/feed?page=4&limit=10 => (31-40) => .skit(30) & .limit(10)
+
+skip = (page - 1) * limit;
