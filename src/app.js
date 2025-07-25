@@ -2,12 +2,17 @@ const express = require("express");
 const connectDB = require("./config/database");
 const app = express();
 const User = require("./models/user");
-
+const cors = require('cors')
 const bcrypt = require("bcrypt")
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 const { userAuth } = require("./middleware/auth");
 
+
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+}));
 // Adding a most important middleware to convert the upcomming request body from JSON object to jawascript object
 app.use(express.json());
 // Adding another most important middleware to convert/parese the upcoming request cookies into native language or in our case jawaScript object
