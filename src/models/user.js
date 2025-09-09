@@ -9,7 +9,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true,
         minLength: 4,
-        maxLength: 50
+        maxLength: 50,
+        
     },
     middleName: {
         type: String,
@@ -20,7 +21,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true,
         minLength: 4,
-        maxLength: 50
+        maxLength: 50,
     },
     emailId: {
         type: String,

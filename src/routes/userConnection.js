@@ -5,7 +5,7 @@ const {userAuth} = require("../middleware/auth")
 const ConnectionRequest = require("../models/connectionRequest");
 const User = require("../models/user");
 
-const USER_SAFE_DATA = "firstName middlename lastName gender photoUrl skills about";
+const USER_SAFE_DATA = "firstName middlename lastName age gender photoUrl skills about";
 
 userRouter.get("/user/request/received", userAuth, async(req, res) => {
     try{
@@ -16,7 +16,7 @@ userRouter.get("/user/request/received", userAuth, async(req, res) => {
             status: "interested",
         }).populate(
             "fromUserId",
-            "firstName middleName lastName gender photoUrl about skills"
+            "firstName middleName lastName gender age photoUrl about skills"
         );
 
         res.json({
@@ -56,11 +56,10 @@ userRouter.get("/user/connections",userAuth, async(req, res) => {
     }
 });
 
-userRouter.get("/user/feed", userAuth , async (req, res) => {
+userRouter.get("/feed", userAuth , async (req, res) => {
     try{
 
         const loggedInUser = req.user;
-        
         // feed should contain all the cards except 
         // the loggedInUser himself
         // the connection request accepted & intrested
