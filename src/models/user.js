@@ -84,12 +84,17 @@ const userSchema = new mongoose.Schema({
 }
 );
 
-userSchema.methods.getJWT = async function (){
-    const user = this;
-    const token = await jwt.sign({ _id: user._id }, "DEV@Tinder$3030", { expiresIn: "1d" }); // this token will be expired in 1 day
-
-    return token;
-};
+// Hash password before saving
+userSchema.pre("save", async function (next) {
+  const user = this;
+  
+  // Only hash if the password has been modified (or is new)
+  if (!user.isModified("password")) return next();
+  
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(user.password, salt);
+  next();
+});
 
 userSchema.methods.validatePassword = async function (passwordInputByUser) {
     const user = this;
@@ -100,5 +105,14 @@ userSchema.methods.validatePassword = async function (passwordInputByUser) {
     return isPasswordValid;
 
 };
+
+userSchema.methods.getJWT = async function (){
+    const user = this;
+    const token = await jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" }); // this token will be expired in 7 days
+
+    return token;
+};
+
+
 
 module.exports = mongoose.model("User", userSchema);

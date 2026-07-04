@@ -1,14 +1,18 @@
+
+require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
 const connectDB = require("./config/database");
 const app = express();
 const User = require("./models/user");
-const cors = require('cors')
 const bcrypt = require("bcrypt")
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 const { userAuth } = require("./middleware/auth");
 
 
+app.use(helmet());
 app.use(cors({
     origin: "http://localhost:5173",
     credentials: true,
@@ -95,12 +99,21 @@ app.use("/", userRouter);
 //     }
 // });
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.statusCode || 500).json({
+    success: false,
+    message: err.message || "Internal Server Error",
+  });
+});
+
+const PORT = process.env.PORT || 3030;
 
 connectDB()
 .then(() => {
     console.log("DataBase connection established...");
-    app.listen(3030, () => {
-        console.log("Server is succesfully listening on port 3030...");
+    app.listen(PORT, () => {
+        console.log(`Server is succesfully listening on port ${PORT}...`);
     });
 })
 .catch((err) => {
