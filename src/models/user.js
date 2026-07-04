@@ -84,17 +84,17 @@ const userSchema = new mongoose.Schema({
 }
 );
 
-// Hash password before saving
-userSchema.pre("save", async function (next) {
-  const user = this;
+// // Hash password before saving
+// userSchema.pre("save", async function (next) {
+//   const user = this;
   
-  // Only hash if the password has been modified (or is new)
-  if (!user.isModified("password")) return next();
+//   // Only hash if the password has been modified (or is new)
+//   if (!user.isModified("password")) return next();
   
-  const salt = await bcrypt.genSalt(10);
-  user.password = await bcrypt.hash(user.password, salt);
-  next();
-});
+//   const salt = await bcrypt.genSalt(10);
+//   user.password = await bcrypt.hash(user.password, salt);
+//   next();
+// });
 
 userSchema.methods.validatePassword = async function (passwordInputByUser) {
     const user = this;
