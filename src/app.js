@@ -14,7 +14,11 @@ const { userAuth } = require("./middleware/auth");
 
 app.use(helmet());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: [
+        "http://localhost:5173", // For your local development
+      "https://dev-tinder-web-git-main-ruler-cosco.vercel.app", // Vercel Domain 1
+      "https://dev-tinder-48fdiw99u-ruler-cosco.vercel.app"     // Vercel Domain 2
+    ],
     credentials: true,
 }));
 // Adding a most important middleware to convert the upcomming request body from JSON object to jawascript object
