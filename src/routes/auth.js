@@ -40,7 +40,13 @@ authRouter.post("/signUp", async(req, res) => {
      const token = await savedUser.getJWT();
 
             // Add the token to the cookie and send the response back to the user
-            res.cookie("token", token , {expires: new Date(Date.now() + 8 * 3600000)});
+            res.cookie("token", token ,  {
+                httpOnly: true,
+                sameSite: "lax",
+                secure: false,
+                // expires: new Date(Date.now() + 8 * 3600000)});// this cookie will expire in 8 hours
+                maxAge: 7 * 24 * 60 * 60 * 1000,
+            });
 
     res.json({message : "User added succesfully" , data : savedUser});
     } catch (err) {
@@ -89,8 +95,13 @@ authRouter.post("/login", async (req, res) => {
 })
 
 authRouter.post("/logout", async (req,res) => {
-    res.cookie("token", null , {expires: new Date(Date.now()) // the token expiry time was set to now current time, as soon as the request hits the token expires
-  });
+
+    res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+});
+    // res.cookie("token", null , {expires: new Date(Date.now()) // the token expiry time was set to now current time, as soon as the request hits the token expires
    res.send("Logout Succesful!!");
 })
 // we can chain the process exp: res.cookie({}).send("logout succesfull");
