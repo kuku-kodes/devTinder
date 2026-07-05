@@ -22,10 +22,9 @@ profileRouter.patch("/profile/edit",userAuth, async (req, res) => {
 
        const loggedInUser = req.user;
 
-       loggedInUser.save();
-
        Object.keys(req.body).forEach((key) => (loggedInUser[key] = req.body[key]));
        
+       loggedInUser.save();
 
        res.send({
          message : `${loggedInUser.firstName}, your profile updated successfully`,
@@ -44,7 +43,7 @@ profileRouter.get("/user", async(req, res) => {
     try{
         const user = await User.findOne({emailId: userEmail})
         console.log(user);
-        if(user.length === 0){
+        if(!user){
             res.send("User not found");
         }else{
             res.send(user);
